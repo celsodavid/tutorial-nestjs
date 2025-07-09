@@ -18,3 +18,8 @@ $ npm i nanoid@3 sqlite3 typeorm @nestjs/typeorm class-validator class-transform
 $ nest g resource developers
 ```
 
+#### Add the necessary package for environment variables.
+```bash
+$ npm i @nestjs/config
+```
+
