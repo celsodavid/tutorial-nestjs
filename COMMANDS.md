@@ -23,3 +23,13 @@ $ nest g resource developers
 $ npm i @nestjs/config
 ```
 
+#### Create a new module for the Star Wars API.
+```bash
+$ nest g module star-wars
+```
+
+#### Install the necessary package for making HTTP requests.
+```bash
+$ npm i axios
+```
+

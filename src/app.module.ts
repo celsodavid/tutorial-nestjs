@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { DevelopersModule } from './developers/developers.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {ConfigModule, ConfigService} from "@nestjs/config";
+import { StarWarsModule } from './star-wars/star-wars.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import {ConfigModule, ConfigService} from "@nestjs/config";
               synchronize: true,
           })
       }),
-      DevelopersModule
+      DevelopersModule,
+      StarWarsModule
   ],
   controllers: [AppController],
   providers: [AppService],
