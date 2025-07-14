@@ -33,3 +33,8 @@ $ nest g module star-wars
 $ npm i axios
 ```
 
+#### Install packages for validation environments.
+```bash
+$ npm i joi
+```
+

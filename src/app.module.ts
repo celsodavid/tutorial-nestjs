@@ -5,11 +5,18 @@ import { DevelopersModule } from './developers/developers.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {ConfigModule, ConfigService} from "@nestjs/config";
 import { StarWarsModule } from './star-wars/star-wars.module';
+import * as Joi from "joi";
 
 @Module({
   imports: [
       // This is the configuration module environment variables
-      ConfigModule.forRoot({ isGlobal: true }),
+      ConfigModule.forRoot({
+          isGlobal: true,
+          validationSchema: Joi.object({
+              STAR_WARS_API_BASE_URL: Joi.string().required(),
+              STAR_WARS_PROTAGONIST_ID: Joi.number().required(),
+          })
+      }),
 
       // This is the TypeORM configuration
       TypeOrmModule.forRootAsync({
