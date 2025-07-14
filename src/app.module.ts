@@ -6,6 +6,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import {ConfigModule, ConfigService} from "@nestjs/config";
 import { StarWarsModule } from './star-wars/star-wars.module';
 import * as Joi from "joi";
+import {AppConfig} from "./app-conig";
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import * as Joi from "joi";
       StarWarsModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppConfig, AppService],
+  exports: [AppConfig]
 })
 export class AppModule {}

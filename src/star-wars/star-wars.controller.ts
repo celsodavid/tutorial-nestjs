@@ -1,15 +1,15 @@
 import {Controller, Get} from "@nestjs/common";
 import axios from 'axios';
-import {ConfigService} from "@nestjs/config";
+import {AppConfig} from "../app-conig";
 
 @Controller('star-wars')
 export class StarWarsController {
     private readonly apiBaseUrl: string;
     private readonly protagonistId: number;
 
-    constructor(config: ConfigService) {
-        this.apiBaseUrl = config.get<string>('STAR_WARS_API_BASE_URL', '');
-        this.protagonistId = config.get<number>('STAR_WARS_PROTAGONIST_ID', 0);
+    constructor(config: AppConfig) {
+        this.apiBaseUrl = config.starWarsApiBaseUrl;
+        this.protagonistId = config.starWarsProtagonistId;
     }
 
     @Get('characters')
