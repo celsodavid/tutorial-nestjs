@@ -1,9 +1,9 @@
-import {forwardRef, Module} from '@nestjs/common';
+import {Module} from '@nestjs/common';
 import {StarWarsController} from "./star-wars.controller";
-import {AppModule} from "../app.module";
+import {AppConfigModule} from "../app-config/app-config.module";
 
 @Module({
-    imports: [forwardRef(() => AppModule)],
+    imports: [AppConfigModule],
     controllers: [StarWarsController],
 })
 export class StarWarsModule {}
