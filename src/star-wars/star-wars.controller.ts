@@ -1,13 +1,13 @@
 import {Controller, Get} from "@nestjs/common";
 import axios from 'axios';
-import {AppConfig} from "../app-conig";
+import {AppConfigService} from "../app-config/app-conig.service";
 
 @Controller('star-wars')
 export class StarWarsController {
     private readonly apiBaseUrl: string;
     private readonly protagonistId: number;
 
-    constructor(config: AppConfig) {
+    constructor(config: AppConfigService) {
         this.apiBaseUrl = config.starWarsApiBaseUrl;
         this.protagonistId = config.starWarsProtagonistId;
     }

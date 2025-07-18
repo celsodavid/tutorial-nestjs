@@ -2,22 +2,14 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DevelopersModule } from './developers/developers.module';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {ConfigModule, ConfigService} from "@nestjs/config";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { ConfigService} from "@nestjs/config";
 import { StarWarsModule } from './star-wars/star-wars.module';
-import * as Joi from "joi";
-import {AppConfig} from "./app-conig";
+import { AppConfigModule } from './app-config/app-config.module';
 
 @Module({
   imports: [
-      // This is the configuration module environment variables
-      ConfigModule.forRoot({
-          isGlobal: true,
-          validationSchema: Joi.object({
-              STAR_WARS_API_BASE_URL: Joi.string().required(),
-              STAR_WARS_PROTAGONIST_ID: Joi.number().required(),
-          })
-      }),
+      AppConfigModule,
 
       // This is the TypeORM configuration
       TypeOrmModule.forRootAsync({
@@ -32,10 +24,9 @@ import {AppConfig} from "./app-conig";
           })
       }),
       DevelopersModule,
-      StarWarsModule
+      StarWarsModule,
   ],
   controllers: [AppController],
-  providers: [AppConfig, AppService],
-  exports: [AppConfig]
+  providers: [AppService],
 })
 export class AppModule {}

@@ -38,3 +38,7 @@ $ npm i axios
 $ npm i joi
 ```
 
+#### Create a new module for the App Config.
+```bash
+$ nest g module app-config
+```
